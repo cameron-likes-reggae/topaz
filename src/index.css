@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: Inter;
+	src: url("assets/InterFont.ttf") format("truetype");
+}
+
+@layer base {
+	h1 {
+		@apply text-3xl font-extrabold tracking-tighter font-inter m-2;
+	}
+}
+html,
+body,
+#root {
+	width: 100%;
+	height: 100%;
+}
+
+:root {
+	font-family: Inter;
+	line-height: 1.5;
+	font-weight: 400;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
