@@ -1,5 +1,3 @@
-import React from "react";
-
 const Index = () => {
 	return (
 		<div className="hero h-full f[background-image:url(https://picsum.photos/1920/1080)]">

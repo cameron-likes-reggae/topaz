@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+// import { useState } from "react";
 import { IoIosPerson } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-	const [auth, setAuth] = useState(false);
+	// const [auth, setAuth] = useState(false);
 	const navigate = useNavigate();
 
 	return (
@@ -34,7 +34,7 @@ const Navbar = () => {
 					/>
 				</div>
 				<div className="dropdown dropdown-end">
-					{auth ? (
+					{true ? (
 						<>
 							<label
 								tabIndex={0}
