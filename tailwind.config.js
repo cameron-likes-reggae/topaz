@@ -4,7 +4,7 @@ export default {
 	daisyui: {
 		themes: [
 			{
-				topaz: {
+				light: {
 					...require("daisyui/src/theming/themes")[
 						"[data-theme=corporate]"
 					],
@@ -14,6 +14,24 @@ export default {
 					accent: "#f8b897",
 					neutral: "#4b5563",
 					"base-100": "#f3f4f6",
+					info: "#7dd3fc",
+					success: "#2fc189",
+					warning: "#fdba74",
+					error: "#f87171",
+				},
+				dark: {
+					...require("daisyui/src/theming/themes")[
+						"[data-theme=corporate]"
+					],
+
+					primary: "#76738b",
+					secondary: "#a3cfc6",
+					accent: "#f8b897",
+					neutral: "#4b5563",
+					"base-100": "#223",
+					"base-200": "#112",
+					"base-300": "#001",
+					"base-content": "#eed",
 					info: "#7dd3fc",
 					success: "#2fc189",
 					warning: "#fdba74",

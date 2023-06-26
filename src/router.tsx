@@ -36,7 +36,7 @@ for (const path of Object.keys(pages)) {
 	const normalizedPathName = fileName.includes("$")
 		? fileName.replace("$", ":")
 		: fileName.replace(/\/index/, "");
-	console.log(pages);
+
 	routes.push({
 		path:
 			fileName === "index" ? "/" : `/${normalizedPathName.toLowerCase()}`,
@@ -49,11 +49,13 @@ for (const path of Object.keys(pages)) {
 const router = createBrowserRouter(
 	routes.map(({ Element, ErrorBoundary, ...rest }) => ({
 		...rest,
-		element: (
-			<Layout>
-				<Element />
-			</Layout>
-		),
+		...(Element && {
+			element: (
+				<Layout>
+					<Element />
+				</Layout>
+			),
+		}),
 		errorElement: <FourOhFour />,
 	}))
 );
