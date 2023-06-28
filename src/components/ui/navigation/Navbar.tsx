@@ -102,7 +102,7 @@ const Navbar = () => {
 							<button className="btn btn-primary">Sign Up</button>
 							<button
 								className="btn btn-ghost"
-								onClick={() => instance.loginPopup()}
+								onClick={() => instance.loginRedirect()}
 							>
 								Login
 							</button>
