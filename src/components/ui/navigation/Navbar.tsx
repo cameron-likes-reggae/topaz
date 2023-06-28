@@ -1,10 +1,11 @@
 // import { useState } from "react";
-import { IoIosPerson } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
+import { useMsal } from "@azure/msal-react";
 
 const Navbar = () => {
-	const { user, login, logout } = useAuth();
+	// const { user, login, logout } = useAuth();
+	const { instance, accounts } = useMsal();
+	const user = accounts[0];
 	const navigate = useNavigate();
 
 	return (
@@ -28,8 +29,15 @@ const Navbar = () => {
 						></path>
 					</svg>
 				</label>
-				<img src="favicon.png" className="w-10 h-10" alt="" />
-				<h1 className="" onClick={() => navigate("/")}>
+				<img
+					src="favicon.png"
+					className="w-5 h-5 lg:w-10 lg:h-10"
+					alt=""
+				/>
+				<h1
+					className="text-xl lg:text-4xl"
+					onClick={() => navigate("/")}
+				>
 					CompanyName
 				</h1>
 			</div>
@@ -55,13 +63,15 @@ const Navbar = () => {
 					/>
 				</div>
 				<div className="dropdown dropdown-end">
-					{user ? (
+					{user?.name ? (
 						<>
 							<label
 								tabIndex={0}
 								className="btn btn-ghost btn-circle avatar"
 							>
-								<IoIosPerson className="text-4xl bg-base-100 rounded-full" />
+								{user?.name.split(" ")[0][0] +
+									user?.name.split(" ")[1][0]}
+								{/* <IoIosPerson className="text-4xl bg-base-100 rounded-full" /> */}
 							</label>
 							<ul
 								tabIndex={0}
@@ -77,7 +87,13 @@ const Navbar = () => {
 									<a>Settings</a>
 								</li>
 								<li>
-									<a onClick={() => logout()}>Logout</a>
+									<a
+										onClick={() =>
+											instance.logoutRedirect()
+										}
+									>
+										Logout
+									</a>
 								</li>
 							</ul>
 						</>
@@ -86,7 +102,7 @@ const Navbar = () => {
 							<button className="btn btn-primary">Sign Up</button>
 							<button
 								className="btn btn-ghost"
-								onClick={() => login()}
+								onClick={() => instance.loginPopup()}
 							>
 								Login
 							</button>

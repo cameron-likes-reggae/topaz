@@ -7,7 +7,7 @@ const Index = () => {
 					<h1 className="mb-5 text-5xl font-bold text-white">
 						Welcome.
 					</h1>
-					<p className="mb-5 text-lg tracking-wide whitespace-nowrap text-white">
+					<p className="mb-5 text-lg tracking-wide lg:whitespace-nowrap text-white">
 						Click below to get started on a journey of a lifetime.
 					</p>
 					<button className="btn btn-primary">Get Started</button>
