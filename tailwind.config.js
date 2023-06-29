@@ -18,6 +18,8 @@ export default {
 					success: "#2fc189",
 					warning: "#fdba74",
 					error: "#f87171",
+
+					"--btn-text-case": "normal",
 				},
 				dark: {
 					...require("daisyui/src/theming/themes")[
@@ -28,9 +30,9 @@ export default {
 					secondary: "#a3cfc6",
 					accent: "#f8b897",
 					neutral: "#4b5563",
-					"base-100": "#223",
-					"base-200": "#112",
-					"base-300": "#001",
+					"base-100": "#112",
+					"base-200": "#223",
+					"base-300": "#334",
 					"base-content": "#eed",
 					info: "#7dd3fc",
 					success: "#2fc189",

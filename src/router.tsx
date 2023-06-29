@@ -56,7 +56,11 @@ const router = createBrowserRouter(
 				</Layout>
 			),
 		}),
-		errorElement: <FourOhFour />,
+		errorElement: (
+			<Layout>
+				<FourOhFour />
+			</Layout>
+		),
 	}))
 );
 

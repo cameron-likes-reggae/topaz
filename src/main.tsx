@@ -4,6 +4,7 @@ import "./index.css";
 import Router from "./router.tsx";
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
+import { RestProvider } from "./providers/RestProvider.tsx";
 const pca = new PublicClientApplication({
 	auth: {
 		clientId: import.meta.env.VITE_CLIENT_ID,
@@ -18,7 +19,9 @@ const pca = new PublicClientApplication({
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
 		<MsalProvider instance={pca}>
-			<Router />
+			<RestProvider>
+				<Router />
+			</RestProvider>
 		</MsalProvider>
 	</React.StrictMode>
 );

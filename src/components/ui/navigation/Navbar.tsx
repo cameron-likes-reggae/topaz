@@ -29,28 +29,30 @@ const Navbar = () => {
 						></path>
 					</svg>
 				</label>
-				<img
-					src="favicon.png"
-					className="w-5 h-5 lg:w-10 lg:h-10"
-					alt=""
-				/>
-				<h1
-					className="text-xl lg:text-4xl"
+				<span
+					className="flex items-center cursor-pointer"
 					onClick={() => navigate("/")}
 				>
-					CompanyName
-				</h1>
+					<img
+						src="favicon.png"
+						className="w-5 h-5 lg:w-7 lg:h-7"
+						alt=""
+					/>
+					<h1 className="!text-2xl lg:!text-3xl cursor-pointer">
+						Topaz
+					</h1>
+				</span>
 			</div>
 			<div className="flex-none gap-10">
 				<div className="form-control hidden xl:block">
-					<ul className="flex gap-5 box-border">
-						<li className="text-lg tracking-wide border-b-2 border-transparent hover:border-secondary transition-colors">
+					<ul className="flex gap-5 box-border menu menu-horizontal">
+						<li>
 							<Link to="/documentation">Documentation</Link>
 						</li>
-						<li className="text-lg tracking-wide  border-b-2 border-transparent hover:border-secondary transition-colors">
+						<li>
 							<Link to="/pricing">Pricing</Link>
 						</li>
-						<li className="text-lg tracking-wide  border-b-2 border-transparent hover:border-secondary transition-colors">
+						<li>
 							<Link to="/contact-us">Contact Us</Link>
 						</li>
 					</ul>
@@ -65,9 +67,10 @@ const Navbar = () => {
 				<div className="dropdown dropdown-end">
 					{user?.name ? (
 						<>
+							<div className="bg-primary brightness-50 w-[2.9rem] h-[2.9rem] top-[0.05rem] left-[0.05rem] rounded-full absolute" />
 							<label
 								tabIndex={0}
-								className="btn btn-ghost btn-circle avatar"
+								className="btn btn-circle glass"
 							>
 								{user?.name.split(" ")[0][0] +
 									user?.name.split(" ")[1][0]}
@@ -84,7 +87,9 @@ const Navbar = () => {
 									</a>
 								</li>
 								<li>
-									<a>Settings</a>
+									<a onClick={() => navigate("/settings")}>
+										Settings
+									</a>
 								</li>
 								<li>
 									<a
@@ -98,8 +103,8 @@ const Navbar = () => {
 							</ul>
 						</>
 					) : (
-						<div className="flex gap-1">
-							<button className="btn btn-primary">Sign Up</button>
+						<div className="flex gap-2">
+							<button className="btn btn-accent">Sign Up</button>
 							<button
 								className="btn btn-ghost"
 								onClick={() => instance.loginRedirect()}
